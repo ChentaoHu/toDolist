@@ -1,16 +1,21 @@
 import React from 'react'
 
-export default function Todo({todos, toggleTodo, deleteSingleTodo}) {
+export default function Todo({todo, toggleTodo,   deleteSingleTodo}) {
 
   function todoClick(){
-    toggleTodo(todos.id)
+    toggleTodo(todo.id)
   }
+
+  function deleteClick (){
+    deleteSingleTodo(todo.id)
+  }
+  
   return (
     <div className="todo" >
-      <label className={todos.complete ?"completed" : ""}>
-        <input type ="checkbox" checked={todos.complete} onChange={todoClick} />
-      {todos.name}
-        <button onClick ={deleteSingleTodo}>x</button>
+      <label className={todo.complete ?"completed" : ""}>
+        <input type ="checkbox" checked={todo.complete} onChange={todoClick} />
+      {todo.name}
+        <button onClick ={deleteClick}>x</button>
       </label>
     </div>
   )

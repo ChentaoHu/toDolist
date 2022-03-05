@@ -4,8 +4,8 @@ import Todo from './Todo'
 
 function TodoList ({todos,toggleTodo, deleteSingleTodo}){
   return (
-        todos.map(todos => {
-          return <Todo key ={todos.id} toggleTodo ={toggleTodo} todos={todos} deleteSingleTodo={deleteSingleTodo}/>
+        todos.map(todo => {
+          return <Todo todo ={todo} toggleTodo ={toggleTodo}  deleteSingleTodo={deleteSingleTodo}/>
         })
   )
 }
