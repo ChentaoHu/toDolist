@@ -40,13 +40,15 @@ const Form =({setTodos, todos}) => {
     <button className ="clear-button" onClick={deleteTodo}>
       Delete Selected Todos
     </button>
-    <div className="select">
-      <select name="todos" className="filter">
+    <div>
+      <select name="todos" 
+      className="filter">
         <option value="all">All</option>
         <option value="completed">Completed</option>
         <option value="uncompleted">uncompleted</option>
       </select>
     </div>
+    <h3>There are still {todos.filter(todo => !todo.complete).length } things left to do!</h3>
   </form>
   )
 }

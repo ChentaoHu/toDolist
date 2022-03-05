@@ -5,6 +5,7 @@ import TodoList from "./Component/TodoList";
 
 function App() {
   const [todos, setTodos] =useState([]);
+  const [status, setStatus] =useState('All')
 
   const toggleTodo =(id) => {
     const newTodos =[...todos]
@@ -13,17 +14,19 @@ function App() {
     setTodos(newTodos)
   }
 
-  const deleteSingleTodo = (todos) =>{
+  const deleteSingleTodo = () =>{
     setTodos(todos.filter((e) => e.id !== todos.id))
   }
 
   return (
   <div className = "App">
     <header>
-      <h1>Kevin's Todo list</h1>
+      <h1>Kevin's ToDo list</h1>
     </header>
-    <Form setTodos={setTodos} todos={todos}/>
-    <TodoList todos={todos} toggleTodo={toggleTodo} deleteSingleTodo ={deleteSingleTodo}/>
+    <div className="Info">
+      <Form className ="Form" setTodos={setTodos} todos={todos}/>
+      <TodoList className ="todolist" todos={todos} toggleTodo={toggleTodo} deleteSingleTodo ={deleteSingleTodo}/>
+    </div>
   </div>
   );
 }
