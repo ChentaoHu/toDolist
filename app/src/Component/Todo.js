@@ -1,6 +1,7 @@
 import React from 'react'
+import TodoList from "./TodoList"
 
-export default function Todo({todo, toggleTodo,   deleteSingleTodo}) {
+export default function Todo({todo, toggleTodo,   deleteSingleTodo, filter}) {
 
   function todoClick(){
     toggleTodo(todo.id)

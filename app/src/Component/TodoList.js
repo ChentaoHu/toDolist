@@ -2,10 +2,10 @@ import React from 'react';
 import Todo from './Todo'
 
 
-function TodoList ({todos,toggleTodo, deleteSingleTodo}){
+function TodoList ({toggleTodo, deleteSingleTodo, filter}){
   return (
-        todos.map(todo => {
-          return <Todo todo ={todo} toggleTodo ={toggleTodo}  deleteSingleTodo={deleteSingleTodo}/>
+        filter.map(todo => {
+          return <Todo todo ={todo} toggleTodo ={toggleTodo}  deleteSingleTodo={deleteSingleTodo} filter={filter}/>
         })
   )
 }

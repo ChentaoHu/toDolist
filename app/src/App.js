@@ -24,6 +24,12 @@ function App() {
       case 'completed':
         setFilter(todos.filter(todo => todo.complete ===true))
         break;
+      case 'uncompleted':
+        setFilter(todos.filter(todo => todo.complete === false))
+        break
+      default :
+        setFilter(todos)
+        break
     }
   }
 
@@ -33,8 +39,8 @@ function App() {
       <h1>Kevin's ToDo List</h1>
     </header>
     <div className="Info">
-      <Form className ="Form" setTodos={setTodos} todos={todos} setFilter={setFilter}/>
-      <TodoList className ="todolist" todos={todos} toggleTodo={toggleTodo} deleteSingleTodo ={deleteSingleTodo}/>
+      <Form className ="Form" setTodos={setTodos} todos={todos} setFilter={setFilter} filterHandler={filterHandler} status={status} setStatus={setStatus}/>
+      <TodoList className ="todolist" toggleTodo={toggleTodo} deleteSingleTodo ={deleteSingleTodo} filter={filter}/>
     </div>
   </div>
   );

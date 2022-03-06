@@ -3,7 +3,7 @@ import {v4 as uuid} from "uuid";
 
 const STORAGE_KEY = 'todoApp.todos'
 
-const Form =({setTodos, todos, setStatus}) => {
+const Form =({setTodos, todos, filterHandler,status, setStatus}) => {
   const userInput =useRef();
   
   useEffect(() =>{
@@ -11,10 +11,13 @@ const Form =({setTodos, todos, setStatus}) => {
     if(storedTodos) setTodos(storedTodos)
   }, [])
 
-
   useEffect(() =>{
     localStorage.setItem(STORAGE_KEY, JSON.stringify(todos))
   },[todos])
+
+  useEffect(() =>{
+    filterHandler()
+  }, [todos,status])
 
   function handleAddtodo(e){
     const toDoText = userInput.current.value;
@@ -48,7 +51,7 @@ const Form =({setTodos, todos, setStatus}) => {
     <div>
       <select onChange={statusChange} name="todos" 
       className="filter">
-        <option value="all">All</option>
+        <option value="All">All</option>
         <option value="completed">Completed</option>
         <option value="uncompleted">Uncompleted</option>
       </select>
